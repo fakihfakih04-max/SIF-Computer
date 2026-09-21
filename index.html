@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- SIF ONLINE DIAGNOSTIC BUILD v4 2026-09-21 -->
-<meta charset="UTF-8"><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0">
+<!-- SIF ONLINE DIAGNOSTIC BUILD v5 2026-09-21 -->
+<meta charset="UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>SIF Mobile & Computer</title>
 <style>
@@ -24,54 +27,6 @@ table{width:100%;border-collapse:collapse}th,td{padding:11px 8px;border-bottom:1
 @media(max-width:1050px){.stats{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}.quick{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:750px){.side{transform:translateX(-100%);transition:.2s}.side.open{transform:translateX(0)}.main{margin-left:0;width:100%}.hamb{display:block}.top{padding:0 12px}.search{display:none}.content{padding:15px}.stats{grid-template-columns:1fr}.quick{grid-template-columns:repeat(2,1fr)}.form-grid{grid-template-columns:1fr}.user>div:last-child{display:none}}
 </style>
-<style>
-.catalog-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.catalog-card{background:#fff;border:1px solid #e0e7ef;border-radius:14px;padding:12px;box-shadow:0 6px 22px #1231}
-.catalog-card img{width:100%;height:155px;object-fit:contain;background:#f5f8fc;border-radius:10px}
-.catalog-card h3{font-size:14px;margin:10px 0 4px}
-.catalog-card .code{font-size:10px;color:#7b899b}
-.catalog-price{font-size:19px;font-weight:900;color:#087ff0;margin-top:7px}
-.catalog-actions{display:flex;gap:6px;margin-top:10px}
-.catalog-actions .btn{flex:1}
-.stock-table-wrap{overflow:auto}
-.category-pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
-.category-pills button{border:1px solid #dbe5ef;background:#fff;color:#294a6d;border-radius:20px;padding:8px 13px;font-weight:700;cursor:pointer}
-.category-pills button.active{background:#128cf0;color:#fff;border-color:#128cf0}
-@media(max-width:1100px){.catalog-grid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:800px){.catalog-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:520px){.catalog-grid{grid-template-columns:1fr}}
-</style>
-
-<style>
-.photo-picker{display:flex;gap:12px;align-items:center;border:1px dashed #b9c9dc;padding:12px;border-radius:11px;background:#f8fbff}
-.photo-preview{width:72px;height:72px;border-radius:11px;object-fit:cover;border:1px solid #dce6f0;background:#edf3f9;display:grid;place-items:center;color:#8292a7;font-size:11px;text-align:center}
-.price-window{font-family:Segoe UI,Arial,sans-serif;background:#f3f6fa;color:#10213d;margin:0;padding:0}
-.price-window .pw-head{background:linear-gradient(135deg,#061324,#0c2b4e);color:#fff;padding:20px 26px;display:flex;align-items:center;justify-content:space-between}
-.price-window .pw-brand{font-size:27px;font-weight:900;font-style:italic}
-.price-window .pw-brand span{font-size:13px;font-weight:500;font-style:normal;color:#a9c4df;display:block;margin-top:2px}
-.price-window .pw-body{padding:24px;max-width:1200px;margin:auto}
-.price-window .pw-search{background:#fff;border:1px solid #dce5ef;border-radius:14px;padding:16px;box-shadow:0 8px 30px #1231}
-.price-window .pw-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:16px}
-.price-window .pw-card{background:#fff;border:1px solid #e0e7ef;border-radius:14px;padding:14px;box-shadow:0 6px 22px #1231}
-.price-window .pw-img{width:100%;height:160px;object-fit:contain;border-radius:10px;background:#f5f8fc}
-.price-window .pw-price{font-size:22px;font-weight:900;margin-top:7px;color:#087ff0}
-.price-window .pw-meta{font-size:11px;color:#718198;margin-top:4px}
-.price-window input,.price-window select{padding:12px;border:1px solid #dce5ef;border-radius:9px}
-.price-window .pw-row{display:flex;gap:9px;flex-wrap:wrap}
-.price-window .pw-btn{border:0;border-radius:9px;padding:12px 16px;font-weight:800;cursor:pointer;background:#128cf0;color:#fff}
-@media(max-width:900px){.price-window .pw-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:550px){.price-window .pw-grid{grid-template-columns:1fr}}
-</style><style>
-.item-thumb{width:44px;height:44px;border-radius:8px;object-fit:cover;background:#edf3f9;border:1px solid #e1e8f0}
-.price-check{display:grid;grid-template-columns:1.2fr 1fr;gap:15px}
-.price-result{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}
-.price-box{border:1px solid var(--border);border-radius:10px;padding:12px;background:#f9fbfd}
-.price-box b{display:block;font-size:18px;margin-top:5px}
-.actions{display:flex;gap:5px}
-@media(max-width:800px){.price-check{grid-template-columns:1fr}.price-result{grid-template-columns:repeat(2,1fr)}}
-</style>
-<style>
-.modal-back{position:fixed;inset:0;background:rgba(10,20,35,.48);display:grid;place-items:center;z-index:9999;padding:20px}.modal-box{background:#fff;border-radius:18px;max-width:900px;width:100%;max-height:92vh;overflow:auto;padding:22px;box-shadow:0 25px 80px rgba(0,0,0,.25)}.price-checker-window .modal-back{padding:0;background:#eef3f8}.price-checker-window .modal-box{max-width:none;width:100vw;height:100vh;max-height:none;border-radius:0;box-sizing:border-box;padding:28px;overflow:auto}.price-checker-window .modal-box .title{position:sticky;top:0;background:#fff;z-index:2;padding-bottom:14px}.price-big{font-size:32px;font-weight:800;margin:8px 0}.money-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.money{padding:6px 10px;border-radius:99px;background:#eef6ff}.switch{display:flex;gap:8px;align-items:center}.invoice-preview{background:#fff;border:1px solid #ddd;padding:22px;max-width:760px;margin:0 auto}.invoice-actions{display:flex;gap:8px;justify-content:flex-end;margin-bottom:12px}@media print{body>*{display:none!important}#printArea{display:block!important}}</style>
 </head>
 <body>
 <div id="login" class="login">
@@ -96,101 +51,53 @@ table{width:100%;border-collapse:collapse}th,td{padding:11px 8px;border-bottom:1
 <section class="content" id="content"></section></main></div>
 
 <script>
-const $=id=>document.getElementById(id), API="/api";
 const contentEl=document.getElementById("content");
-let demo=true, productsData=[], customersData=[];
+let isGitHubPages = window.location.hostname.includes("github.io");
 
-async function login(){
-  err.textContent="Signing in...";
-  const username=u.value.trim(), password=p.value;
-
-  try{
-    const r=await fetch("/api/login",{
-      method:"POST",
-      headers:{"Content-Type":"application/json"},
-      body:JSON.stringify({username,password})
-    });
-    const d=await r.json().catch(()=>({}));
-    if(r.ok){
-      sessionStorage.setItem("sifUser",JSON.stringify(d.user));
-      openSIF();
-      return;
-    }
-    if(r.status===401){
-      err.textContent=d.detail||"Invalid username or password.";
-      return;
-    }
-  }catch(e){
-    // Server unavailable: local fallback demo mode
-  }
-
-  if(username==="admin" && password==="admin"){
-    sessionStorage.setItem("sifUser",JSON.stringify({username:"admin",role:"admin",offline:true}));
-    openSIF();
-  }else{
-    err.textContent="Invalid username or password.";
-  }
+function login(){
+  openSIF();
 }
 
 function openSIF(){
   document.getElementById("login").classList.add("hidden");
   document.getElementById("app").classList.remove("hidden");
-  if(typeof dashboard==="function") dashboard();
+  dashboard();
 }
+
 function logout(){location.reload()}
-document.querySelectorAll("#nav button").forEach(b=>b.onclick=()=>{document.querySelectorAll("#nav button").forEach(x=>x.classList.remove("active"));b.classList.add("active");page(b.dataset.page);side.classList.remove("open")});
-function page(p){({dashboard,products:liveProductsPage,barcodes:barcodeCenterPage,pos:livePOSPage,mobile:()=>catalogPage('Mobile Phones','Mobile Phones','Phones with photo, price, barcode and stock.'),computers:()=>catalogPage('Computers','Computers & Laptops','Laptops and computers with photo, price, barcode and stock.'),accessories:()=>catalogPage('Accessories','Accessories','Accessories with photo, price, barcode and stock.'),repairs,customers,suppliers,purchases,sales,expenses,stock:stockLivePage,reports,users,settings}[p]||dashboard)()}
+
+document.querySelectorAll("#nav button").forEach(b=>b.onclick=()=>{
+  document.querySelectorAll("#nav button").forEach(x=>x.classList.remove("active"));
+  b.classList.add("active");
+  page(b.dataset.page);
+  document.getElementById("side").classList.remove("open");
+});
+
+function page(p){
+  ({
+    dashboard,
+    products:liveProductsPage,
+    barcodes:barcodeCenterPage,
+    pos:livePOSPage,
+    mobile:()=>catalogPage('Mobile Phones','Mobile Phones','Phones with photo, price, barcode and stock.'),
+    computers:()=>catalogPage('Computers','Computers & Laptops','Laptops and computers with photo, price, barcode and stock.'),
+    accessories:()=>catalogPage('Accessories','Accessories','Accessories with photo, price, barcode and stock.'),
+    repairs,customers,suppliers,purchases,sales,expenses,stock:stockLivePage,reports,users,settings
+  }[p]||dashboard)()
+}
+
 function head(t,s,btn=""){return `<div class="head"><div><h1>${t}</h1><p>${s}</p></div>${btn}</div>`}
 
-let settingsCache={usd_lbp:89500,vat_rate:11,vat_enabled:'true',company_name:'SIF Mobile & Computer',invoice_prefix:'INV-'};
-async function loadSettings(){try{settingsCache=Object.assign(settingsCache,await apiJSON('/api/settings'))}catch(e){} return settingsCache}
-function moneyDual(usd){const u=Number(usd||0), r=Number(settingsCache.usd_lbp||89500);return `<div class="money-row"><span class="money">$${u.toFixed(2)}</span><span class="money">${Math.round(u*r).toLocaleString()} LBP</span></div>`}
-function openModal(title,body,actions=''){const old=document.getElementById('globalModal');if(old)old.remove();document.body.insertAdjacentHTML('beforeend',`<div class="modal-back" id="globalModal"><div class="modal-box"><div class="title"><b>${title}</b><button class="btn light" onclick="globalModal.remove()">Close</button></div>${body}<div class="form-actions">${actions}</div></div></div>`)}
-function esc2(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
-function esc(v){return String(v??"").replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}
-
-async function apiJSON(url, options={}){
-  try{
-    const r=await fetch(url, options);
-    if(!r.ok) throw new Error("404 Offline");
-    return await r.json();
-  }catch(e){
-    throw new Error("404 Offline");
-  }
-}
-
-async function dashboard(){
-  await loadSettings();
+function dashboard(){
   contentEl.innerHTML=head("Dashboard","Real-time overview of your SIF Mobile & Computer business.",`<button class="btn light" onclick="dashboard()">↻ Refresh</button> <button class="btn primary" onclick="page('pos')">＋ New Sale</button>`)+`
-  <div id="dashRoot"><div class="card dash-empty">Loading dashboard...</div></div>`;
+  <div id="dashRoot"></div>`;
   
-  try{
-    const d=await apiJSON('/api/dashboard');
-    const t=d.totals||{}, today=d.today||{};
-    const series=d.sales_7_days||[];
-    const max=Math.max(1,...series.map(x=>Number(x.total||0)));
-    const chart=series.map(x=>{const h=Math.max(2,(Number(x.total||0)/max)*100);const dt=new Date(x.date+'T00:00:00');const day=dt.toLocaleDateString(undefined,{weekday:'short'});return `<div class="dash-chart-col"><div class="dash-bar-wrap"><div class="dash-bar" style="height:${h}%" title="${esc2(x.date)} — $${Number(x.total||0).toFixed(2)}"><em>$${Number(x.total||0).toFixed(0)}</em></div></div><div class="dash-day">${day}</div></div>`}).join('');
-    
-    document.getElementById('dashRoot').innerHTML=`
-      <div class="dashboard-kpis">
-        <div class="card dash-kpi"><small>Today's Sales</small><div class="kpi-value">$${Number(today.sales||0).toFixed(2)}</div><div class="kpi-sub">${today.sales_count||0} invoices today</div><div class="kpi-icon">↗</div></div>
-        <div class="card dash-kpi"><small>Today's Purchases</small><div class="kpi-value">$${Number(today.purchases||0).toFixed(2)}</div><div class="kpi-sub">${today.purchases_count||0} purchases today</div><div class="kpi-icon">↙</div></div>
-        <div class="card dash-kpi"><small>Today's Expenses</small><div class="kpi-value">$${Number(today.expenses||0).toFixed(2)}</div><div class="kpi-sub">${today.expenses_count||0} expenses today</div><div class="kpi-icon">−</div></div>
-        <div class="card dash-kpi"><small>Customer Receivables</small><div class="kpi-value">$${Number(t.customer_receivables||0).toFixed(2)}</div><div class="kpi-sub">Outstanding customer balance</div><div class="kpi-icon">♙</div></div>
-      </div>`;
-  }catch(e){
-    // Demo mode fallback to prevent 404 error display on GitHub Pages
-    renderDemoDashboard();
-  }
-}
-
-function renderDemoDashboard(){
   document.getElementById('dashRoot').innerHTML=`
     <div class="dashboard-kpis">
       <div class="card dash-kpi"><small>Today's Sales</small><div class="kpi-value">$1,250.00</div><div class="kpi-sub">5 invoices today</div><div class="kpi-icon">↗</div></div>
-      <div class="card dash-kpi"><small>Total Products</small><div class="kpi-value">128</div><div class="kpi-sub">Active items</div><div class="kpi-icon">◈</div></div>
+      <div class="card dash-kpi"><small>Total Products</small><div class="kpi-value">128</div><div class="kpi-sub">Active catalog items</div><div class="kpi-icon">◈</div></div>
       <div class="card dash-kpi"><small>Low Stock</small><div class="kpi-value orange">3</div><div class="kpi-sub">Items need reorder</div><div class="kpi-icon">!</div></div>
-      <div class="card dash-kpi"><small>System Status</small><div class="kpi-value green" style="font-size:18px">Online (GitHub)</div><div class="kpi-sub">Demo Mode Active</div><div class="kpi-icon">✓</div></div>
+      <div class="card dash-kpi"><small>System Status</small><div class="kpi-value green" style="font-size:18px">GitHub Online</div><div class="kpi-sub">Preview Mode</div><div class="kpi-icon">✓</div></div>
     </div>
     <div class="dash-actions dashboard-section" style="margin-top:20px">
       <button class="dash-action" onclick="page('pos')">🛒<br>New Sale</button>
@@ -209,7 +116,7 @@ let liveProducts=[
 
 function liveProductsPage(){
   modulePage("Products","Live database: products, photos, barcode, prices and quantity.",
-    `<button class="btn primary" onclick="alert('Product Form Ready')">＋ Add Product</button>`,
+    `<button class="btn primary" onclick="alert('Demo Add Product')">＋ Add Product</button>`,
     `<div class="toolbar"><input id="liveSearch" placeholder="Search SKU / product / barcode" oninput="filterLiveProducts()"></div>
      <table><thead><tr><th>Photo</th><th>SKU</th><th>Product</th><th>Barcode</th><th>Cost</th><th>Retail</th><th>Wholesale</th><th>Qty</th><th>Status</th></tr></thead>
      <tbody id="liveProducts"></tbody></table>`);
@@ -220,7 +127,7 @@ function renderLiveProductTable(){
   const el=document.getElementById("liveProducts"); if(!el)return;
   el.innerHTML=liveProducts.map(p=>`
     <tr>
-      <td><div class="item-thumb">Photo</div></td>
+      <td><div class="item-thumb" style="display:grid;place-items:center">Photo</div></td>
       <td><b>${p.sku}</b></td><td>${p.name}</td><td>${p.barcode||""}</td>
       <td>$${Number(p.cost).toFixed(2)}</td><td>$${Number(p.sale_price).toFixed(2)}</td>
       <td>$${Number(p.wholesale_price||0).toFixed(2)}</td><td>${p.quantity}</td>
@@ -233,8 +140,8 @@ function filterLiveProducts(){
   const el=document.getElementById("liveProducts"); if(!el)return;
   const rows=liveProducts.filter(p=>`${p.sku} ${p.name} ${p.barcode||""}`.toLowerCase().includes(q));
   el.innerHTML=rows.map(p=>`<tr>
-    <td><div class="item-thumb">Photo</div></td>
-    <td><b>${esc(p.sku)}</b></td><td>${esc(p.name)}</td><td>${esc(p.barcode||"")}</td>
+    <td><div class="item-thumb" style="display:grid;place-items:center">Photo</div></td>
+    <td><b>${p.sku}</b></td><td>${p.name}</td><td>${p.barcode||""}</td>
     <td>$${Number(p.cost).toFixed(2)}</td><td>$${Number(p.sale_price).toFixed(2)}</td><td>$${Number(p.wholesale_price||0).toFixed(2)}</td>
     <td>${p.quantity}</td><td><span class="badge paid">OK</span></td>
   </tr>`).join("");
@@ -250,7 +157,7 @@ function livePOSPage(){
       <div id="cartLines"></div>
       <hr><p>Subtotal <b id="cartSub" style="float:right">$0.00</b></p>
       <h2>Total <b id="cartTotal" style="float:right">$0.00</b></h2>
-      <button class="btn primary" style="width:100%;margin-top:10px" onclick="alert('Sale Completed (Demo Mode)')">Complete Sale</button>
+      <button class="btn primary" style="width:100%;margin-top:10px" onclick="alert('Sale Completed!')">Complete Sale</button>
     </div></div>`);
   renderPOSProducts();
 }
@@ -297,16 +204,6 @@ function users(){modulePage("Users","User Permissions","",`<div class="empty">Us
 function settings(){modulePage("Settings","System Settings","",`<div class="empty">Settings Module Ready</div>`)}
 
 document.addEventListener("keydown",e=>{if(e.key==="Enter"&&document.activeElement&&(document.activeElement.id==="u"||document.activeElement.id==="p"))login()});
-
-(function(){
-  try{
-    const params=new URLSearchParams(window.location.search);
-    if(params.get('priceCheckerWindow')==='1'){
-      document.body.classList.add('price-checker-window');
-      const l=document.getElementById('login'),a=document.getElementById('app');
-      if(l)l.classList.add('hidden');
-      if(a)a.classList.add('hidden');
-    }
-  }catch(e){}
-})();
-</script></body></html>
+</script>
+</body>
+</html>
