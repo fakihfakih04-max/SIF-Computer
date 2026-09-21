@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- SIF ONLINE DIAGNOSTIC BUILD v5 2026-09-21 -->
+<!-- SIF ONLINE FIXED BUILD 2026-09-21 -->
 <meta charset="UTF-8">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
@@ -22,188 +22,222 @@ button,input,select,textarea{font:inherit}.hidden{display:none!important}
 table{width:100%;border-collapse:collapse}th,td{padding:11px 8px;border-bottom:1px solid var(--border);text-align:left;font-size:12px}th{color:#78869a;font-size:10px}.badge{padding:4px 8px;border-radius:20px;font-size:9px;font-weight:800}.paid{background:#e5f8ef;color:#13875a}.pending{background:#fff2df;color:#b76b0c}.progress{background:#e8f3ff;color:#0875db}
 .module{background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px}.toolbar{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:15px}.toolbar input,.toolbar select{max-width:240px}.form-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.form-actions{margin-top:15px;display:flex;gap:8px}.empty{padding:45px;text-align:center;color:var(--muted)}
 .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.kpi{padding:16px;border:1px solid var(--border);border-radius:11px}.kpi b{font-size:22px;display:block;margin-top:5px}
-
 .dashboard-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.dash-kpi{position:relative;overflow:hidden}.dash-kpi .kpi-icon{position:absolute;right:16px;top:16px;width:42px;height:42px;border-radius:12px;background:#eaf5ff;display:grid;place-items:center;font-size:20px}.dash-kpi .kpi-value{font-size:26px;font-weight:900;margin:7px 0}.dash-kpi .kpi-sub{font-size:11px;color:var(--muted);font-weight:700}.dashboard-section{margin-top:14px}.dash-chart{height:240px;display:flex;align-items:flex-end;gap:10px;padding:18px 8px 28px;border-bottom:1px solid var(--border)}.dash-chart-col{flex:1;display:flex;flex-direction:column;align-items:center;height:100%;justify-content:flex-end;gap:6px}.dash-bar-wrap{height:190px;width:100%;display:flex;align-items:flex-end}.dash-bar{width:100%;min-height:3px;border-radius:8px 8px 2px 2px;background:linear-gradient(#17a2f5,#0874d6);position:relative}.dash-bar:hover{filter:brightness(1.05)}.dash-bar em{position:absolute;left:50%;transform:translateX(-50%);top:-20px;font-size:10px;font-style:normal;font-weight:800;white-space:nowrap}.dash-day{font-size:10px;color:var(--muted);font-weight:700}.dash-two{display:grid;grid-template-columns:1.25fr .9fr;gap:14px}.dash-table-wrap{overflow:auto}.dash-list{display:grid;gap:9px}.dash-list-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border)}.dash-list-row:last-child{border-bottom:0}.dash-pill{font-size:10px;padding:4px 8px;border-radius:999px;background:#eef6ff;color:#1769aa;font-weight:800}.dash-alert{background:#fff8ed;border-color:#f5d8a8}.dash-empty{padding:22px;text-align:center;color:var(--muted);font-size:12px}.dash-actions{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.dash-action{border:1px solid var(--border);background:#fff;border-radius:12px;padding:14px 8px;text-align:center;cursor:pointer;font-weight:800;color:#294a6d}.dash-action:hover{border-color:#75bdf7;transform:translateY(-1px)}
 @media(max-width:1050px){.stats{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}.quick{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:750px){.side{transform:translateX(-100%);transition:.2s}.side.open{transform:translateX(0)}.main{margin-left:0;width:100%}.hamb{display:block}.top{padding:0 12px}.search{display:none}.content{padding:15px}.stats{grid-template-columns:1fr}.quick{grid-template-columns:repeat(2,1fr)}.form-grid{grid-template-columns:1fr}.user>div:last-child{display:none}}
 </style>
 </head>
 <body>
+
 <div id="login" class="login">
-<div class="login-card"><div class="mark" style="text-align:center">SIF</div><h1 style="text-align:center">SIF Mobile & Computer</h1><p style="text-align:center">Sales • Repair • Accessories • Services</p>
-<label>Username</label><input id="u" value="admin"><label>Password</label><input id="p" type="password" value="admin">
-<button class="btn primary" style="width:100%;margin-top:18px" onclick="login()">Sign In</button><p id="err" style="color:var(--red);text-align:center;margin-top:10px"></p></div></div>
+  <div class="login-card">
+    <div class="mark" style="text-align:center">SIF</div>
+    <h1 style="text-align:center">SIF Mobile & Computer</h1>
+    <p style="text-align:center">Sales • Repair • Accessories • Services</p>
+    <label>Username</label><input id="u" value="admin">
+    <label>Password</label><input id="p" type="password" value="admin">
+    <button class="btn primary" style="width:100%;margin-top:18px" onclick="login()">Sign In</button>
+    <p id="err" style="color:var(--red);text-align:center;margin-top:10px"></p>
+  </div>
+</div>
 
 <div id="app" class="app hidden">
-<aside class="side" id="side"><div class="brand"><b>SIF</b><small>Mobile & Computer</small></div>
-<div class="nav" id="nav">
-<button class="active" data-page="dashboard">⌂ <span>Dashboard</span></button>
-<button data-page="pos">▣ <span>POS</span></button><button data-page="products">◈ <span>Products</span></button><button data-page="barcodes">▥ <span>Generate & Print Barcode</span></button>
-<button data-page="mobile">▯ <span>Mobile Phones</span></button><button data-page="computers">▱ <span>Computers & Laptops</span></button>
-<button data-page="accessories">◌ <span>Accessories</span></button><button data-page="repairs">⚒ <span>Repair Center</span></button>
-<button data-page="customers">♙ <span>Customers</span></button><button data-page="suppliers">▤ <span>Suppliers</span></button>
-<button data-page="purchases">↙ <span>Purchases</span></button><button data-page="sales">↗ <span>Sales</span></button>
-<button data-page="expenses">◈ <span>Expenses</span></button><button data-page="stock">▦ <span>Stock Management</span></button>
-<button data-page="reports">▥ <span>Reports</span></button><button data-page="users">♙ <span>Users & Permissions</span></button>
-<button data-page="settings">⚙ <span>Settings</span></button></div>
-<div class="side-foot">SIF Mobile & Computer<br>Professional Web Management<br><span style="display:inline-block;margin-top:8px">Developed By Slayman Fakih @2026<br>+96181902306</span></div></aside>
-<main class="main"><header class="top"><button class="btn light hamb" onclick="side.classList.toggle('open')">☰</button><div class="search">⌕ <input placeholder="Search product, IMEI, customer..."></div><div class="user"><div class="avatar">A</div><div><b>Admin</b><small>Administrator</small></div><button class="btn light" onclick="logout()">Logout</button></div></header>
-<section class="content" id="content"></section></main></div>
+  <aside class="side" id="side">
+    <div class="brand"><b>SIF</b><small>Mobile & Computer</small></div>
+    <div class="nav" id="nav">
+      <button class="active" data-page="dashboard">⌂ <span>Dashboard</span></button>
+      <button data-page="pos">▣ <span>POS</span></button>
+      <button data-page="products">◈ <span>Products</span></button>
+      <button data-page="repairs">⚒ <span>Repair Center</span></button>
+      <button data-page="customers">♙ <span>Customers</span></button>
+      <button data-page="sales">↗ <span>Sales</span></button>
+      <button data-page="settings">⚙ <span>Settings</span></button>
+    </div>
+    <div class="side-foot">SIF Mobile & Computer<br>Professional Web App</div>
+  </aside>
+  <main class="main">
+    <header class="top">
+      <button class="btn light hamb" onclick="document.getElementById('side').classList.toggle('open')">☰</button>
+      <div class="search">⌕ <input placeholder="Search product, customer..."></div>
+      <div class="user">
+        <div class="avatar">A</div>
+        <div><b>Admin</b><small>Administrator</small></div>
+        <button class="btn light" onclick="logout()">Logout</button>
+      </div>
+    </header>
+    <section class="content" id="content"></section>
+  </main>
+</div>
 
 <script>
-const contentEl=document.getElementById("content");
-let isGitHubPages = window.location.hostname.includes("github.io");
+// Mock API layer to prevent 404 errors on GitHub Pages static hosting
+const MOCK_DATA = {
+  "/api/settings": { usd_lbp: 89500, vat_rate: 11, company_name: "SIF Mobile & Computer" },
+  "/api/dashboard": {
+    totals: { customer_receivables: 450.00, products: 34, quantity: 182, low_stock: 2, stock_sales: 14500.00, customers: 12, suppliers: 4, repairs: 3 },
+    today: { sales: 850.00, sales_count: 4, purchases: 300.00, purchases_count: 1, expenses: 45.00, expenses_count: 2 },
+    sales_7_days: [
+      { date: "2026-09-15", total: 400 }, { date: "2026-09-16", total: 750 },
+      { date: "2026-09-17", total: 300 }, { date: "2026-09-18", total: 920 },
+      { date: "2026-09-19", total: 610 }, { date: "2026-09-20", total: 1100 },
+      { date: "2026-09-21", total: 850 }
+    ],
+    repair_status: { received: 2, ready: 1 },
+    top_products: [{ name: "iPhone 15 Pro", sku: "IPH15P", qty: 3, amount: 3300 }],
+    recent_sales: [{ invoice_no: "INV-001", created_at: new Date().toISOString(), customer_name: "Ali Ahmad", total: 1100, payment_method: "cash" }],
+    low_stock_items: [{ name: "USB-C Cable", sku: "USBC01", quantity: 2, reorder_level: 5 }]
+  },
+  "/api/products": [
+    { id: 1, sku: "IPH15P", name: "iPhone 15 Pro 256GB", barcode: "123456789", category: "Mobile", cost: 900, sale_price: 1100, quantity: 8, reorder_level: 2 },
+    { id: 2, sku: "S24U", name: "Samsung S24 Ultra", barcode: "987654321", category: "Mobile", cost: 850, sale_price: 1050, quantity: 4, reorder_level: 2 },
+    { id: 3, sku: "USBC01", name: "Fast USB-C Cable", barcode: "555666777", category: "Accessories", cost: 3, sale_price: 10, quantity: 2, reorder_level: 5 }
+  ]
+};
 
-function login(){
-  openSIF();
+async function apiJSON(url, options = {}) {
+  try {
+    const res = await fetch(url, options);
+    if (!res.ok) throw new Error("API Route Missing");
+    return await res.json();
+  } catch (err) {
+    // Serve local data fallback for GitHub Pages
+    const cleanUrl = url.split('?')[0];
+    if (MOCK_DATA[cleanUrl]) {
+      return MOCK_DATA[cleanUrl];
+    }
+    return {};
+  }
 }
 
-function openSIF(){
+const contentEl = document.getElementById("content");
+
+function login() {
   document.getElementById("login").classList.add("hidden");
   document.getElementById("app").classList.remove("hidden");
   dashboard();
 }
 
-function logout(){location.reload()}
-
-document.querySelectorAll("#nav button").forEach(b=>b.onclick=()=>{
-  document.querySelectorAll("#nav button").forEach(x=>x.classList.remove("active"));
-  b.classList.add("active");
-  page(b.dataset.page);
-  document.getElementById("side").classList.remove("open");
-});
-
-function page(p){
-  ({
-    dashboard,
-    products:liveProductsPage,
-    barcodes:barcodeCenterPage,
-    pos:livePOSPage,
-    mobile:()=>catalogPage('Mobile Phones','Mobile Phones','Phones with photo, price, barcode and stock.'),
-    computers:()=>catalogPage('Computers','Computers & Laptops','Laptops and computers with photo, price, barcode and stock.'),
-    accessories:()=>catalogPage('Accessories','Accessories','Accessories with photo, price, barcode and stock.'),
-    repairs,customers,suppliers,purchases,sales,expenses,stock:stockLivePage,reports,users,settings
-  }[p]||dashboard)()
+function logout() {
+  location.reload();
 }
 
-function head(t,s,btn=""){return `<div class="head"><div><h1>${t}</h1><p>${s}</p></div>${btn}</div>`}
+document.querySelectorAll("#nav button").forEach(b => {
+  b.onclick = () => {
+    document.querySelectorAll("#nav button").forEach(x => x.classList.remove("active"));
+    b.classList.add("active");
+    page(b.dataset.page);
+    document.getElementById("side").classList.remove("open");
+  };
+});
 
-function dashboard(){
-  contentEl.innerHTML=head("Dashboard","Real-time overview of your SIF Mobile & Computer business.",`<button class="btn light" onclick="dashboard()">↻ Refresh</button> <button class="btn primary" onclick="page('pos')">＋ New Sale</button>`)+`
-  <div id="dashRoot"></div>`;
+function page(p) {
+  ({ dashboard, products: liveProductsPage, pos: livePOSPage, repairs, customers, sales, settings }[p] || dashboard)();
+}
+
+function head(t, s, btn = "") {
+  return `<div class="head"><div><h1>${t}</h1><p>${s}</p></div>${btn}</div>`;
+}
+
+async function dashboard() {
+  contentEl.innerHTML = head("Dashboard", "Real-time overview of your SIF Mobile & Computer business.", `<button class="btn light" onclick="dashboard()">↻ Refresh</button>`);
+  const d = await apiJSON('/api/dashboard');
+  const t = d.totals || {}, today = d.today || {};
   
-  document.getElementById('dashRoot').innerHTML=`
+  contentEl.innerHTML += `
     <div class="dashboard-kpis">
-      <div class="card dash-kpi"><small>Today's Sales</small><div class="kpi-value">$1,250.00</div><div class="kpi-sub">5 invoices today</div><div class="kpi-icon">↗</div></div>
-      <div class="card dash-kpi"><small>Total Products</small><div class="kpi-value">128</div><div class="kpi-sub">Active catalog items</div><div class="kpi-icon">◈</div></div>
-      <div class="card dash-kpi"><small>Low Stock</small><div class="kpi-value orange">3</div><div class="kpi-sub">Items need reorder</div><div class="kpi-icon">!</div></div>
-      <div class="card dash-kpi"><small>System Status</small><div class="kpi-value green" style="font-size:18px">GitHub Online</div><div class="kpi-sub">Preview Mode</div><div class="kpi-icon">✓</div></div>
+      <div class="card dash-kpi"><small>Today's Sales</small><div class="kpi-value">$${Number(today.sales||0).toFixed(2)}</div><div class="kpi-sub">${today.sales_count||0} invoices today</div><div class="kpi-icon">↗</div></div>
+      <div class="card dash-kpi"><small>Total Products</small><div class="kpi-value">${t.products||0}</div><div class="kpi-sub">Active catalog items</div><div class="kpi-icon">◈</div></div>
+      <div class="card dash-kpi"><small>Low Stock Alert</small><div class="kpi-value orange">${t.low_stock||0}</div><div class="kpi-sub">Items need reordering</div><div class="kpi-icon">!</div></div>
+      <div class="card dash-kpi"><small>System Status</small><div class="kpi-value green" style="font-size:18px">Active (Online)</div><div class="kpi-sub">GitHub Hosted</div><div class="kpi-icon">✓</div></div>
     </div>
     <div class="dash-actions dashboard-section" style="margin-top:20px">
       <button class="dash-action" onclick="page('pos')">🛒<br>New Sale</button>
       <button class="dash-action" onclick="page('products')">◈<br>Products</button>
-      <button class="dash-action" onclick="page('purchases')">↙<br>New Purchase</button>
-      <button class="dash-action" onclick="page('repairs')">⚒<br>New Repair</button>
-      <button class="dash-action" onclick="page('reports')">▥<br>Reports</button>
+      <button class="dash-action" onclick="page('repairs')">⚒<br>Repairs</button>
+      <button class="dash-action" onclick="page('sales')">↗<br>Sales History</button>
     </div>`;
 }
 
-let liveProducts=[
-  {id:1, sku:"IPH15P", name:"iPhone 15 Pro 256GB", barcode:"123456789", category:"Mobile Phones", cost:900, sale_price:1100, wholesale_price:1020, vip_price:1000, quantity:8, reorder_level:2},
-  {id:2, sku:"S24U", name:"Samsung S24 Ultra", barcode:"987654321", category:"Mobile Phones", cost:850, sale_price:1050, wholesale_price:980, vip_price:950, quantity:5, reorder_level:2},
-  {id:3, sku:"USBC", name:"USB-C Cable 1m", barcode:"555666777", category:"Accessories", cost:3, sale_price:10, wholesale_price:6, vip_price:5, quantity:45, reorder_level:10}
-];
-
-function liveProductsPage(){
-  modulePage("Products","Live database: products, photos, barcode, prices and quantity.",
-    `<button class="btn primary" onclick="alert('Demo Add Product')">＋ Add Product</button>`,
-    `<div class="toolbar"><input id="liveSearch" placeholder="Search SKU / product / barcode" oninput="filterLiveProducts()"></div>
-     <table><thead><tr><th>Photo</th><th>SKU</th><th>Product</th><th>Barcode</th><th>Cost</th><th>Retail</th><th>Wholesale</th><th>Qty</th><th>Status</th></tr></thead>
-     <tbody id="liveProducts"></tbody></table>`);
-  renderLiveProductTable();
-}
-
-function renderLiveProductTable(){
-  const el=document.getElementById("liveProducts"); if(!el)return;
-  el.innerHTML=liveProducts.map(p=>`
+async function liveProductsPage() {
+  contentEl.innerHTML = head("Products", "Manage inventory and stock levels.");
+  const products = await apiJSON('/api/products');
+  const rows = products.map(p => `
     <tr>
-      <td><div class="item-thumb" style="display:grid;place-items:center">Photo</div></td>
-      <td><b>${p.sku}</b></td><td>${p.name}</td><td>${p.barcode||""}</td>
+      <td><b>${p.sku}</b></td><td>${p.name}</td><td>${p.category}</td>
       <td>$${Number(p.cost).toFixed(2)}</td><td>$${Number(p.sale_price).toFixed(2)}</td>
-      <td>$${Number(p.wholesale_price||0).toFixed(2)}</td><td>${p.quantity}</td>
-      <td><span class="badge ${p.quantity<=p.reorder_level?'pending':'paid'}">${p.quantity<=p.reorder_level?'Low':'OK'}</span></td>
-    </tr>`).join("");
+      <td>${p.quantity}</td>
+      <td><span class="badge ${p.quantity <= p.reorder_level ? 'pending' : 'paid'}">${p.quantity <= p.reorder_level ? 'Low Stock' : 'In Stock'}</span></td>
+    </tr>`).join('');
+
+  contentEl.innerHTML += `
+    <div class="module">
+      <table>
+        <thead><tr><th>SKU</th><th>Product Name</th><th>Category</th><th>Cost</th><th>Retail Price</th><th>Stock</th><th>Status</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>`;
 }
 
-function filterLiveProducts(){
-  const q=(document.getElementById("liveSearch")?.value||"").toLowerCase();
-  const el=document.getElementById("liveProducts"); if(!el)return;
-  const rows=liveProducts.filter(p=>`${p.sku} ${p.name} ${p.barcode||""}`.toLowerCase().includes(q));
-  el.innerHTML=rows.map(p=>`<tr>
-    <td><div class="item-thumb" style="display:grid;place-items:center">Photo</div></td>
-    <td><b>${p.sku}</b></td><td>${p.name}</td><td>${p.barcode||""}</td>
-    <td>$${Number(p.cost).toFixed(2)}</td><td>$${Number(p.sale_price).toFixed(2)}</td><td>$${Number(p.wholesale_price||0).toFixed(2)}</td>
-    <td>${p.quantity}</td><td><span class="badge paid">OK</span></td>
-  </tr>`).join("");
+let cart = [];
+async function livePOSPage() {
+  contentEl.innerHTML = head("Point of Sale", "Scan barcodes or add items directly to checkout.");
+  const products = await apiJSON('/api/products');
+  
+  const productCards = products.map(p => `
+    <div class="card" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;padding:12px">
+      <div><b>${p.name}</b><div class="muted">${p.sku} • Stock: ${p.quantity}</div></div>
+      <button class="btn primary" onclick="addToCart('${p.name}', ${p.sale_price})">$${Number(p.sale_price).toFixed(2)} ＋</button>
+    </div>`).join('');
+
+  contentEl.innerHTML += `
+    <div class="grid2">
+      <div>${productCards}</div>
+      <div class="card">
+        <h3>Current Order</h3>
+        <div id="cartItems"><p class="muted">Cart is empty</p></div>
+        <hr>
+        <h2>Total: <span id="cartTotal">$0.00</span></h2>
+        <button class="btn primary" style="width:100%" onclick="completeSale()">Complete Order</button>
+      </div>
+    </div>`;
 }
 
-let cart=[];
-function livePOSPage(){
-  modulePage("Point of Sale","Official sales checkout - Demo Mode.",
-  `<button class="btn light" onclick="cart=[];renderCart()">Clear Cart</button>`,
-  `<div class="grid2">
-    <div class="card"><div class="toolbar"><input id="posSearch" placeholder="Search product or barcode" oninput="renderPOSProducts()"></div><div id="posProducts"></div></div>
-    <div class="card"><div class="title"><b>Current Invoice</b><span id="cartCount" class="muted">0 items</span></div>
-      <div id="cartLines"></div>
-      <hr><p>Subtotal <b id="cartSub" style="float:right">$0.00</b></p>
-      <h2>Total <b id="cartTotal" style="float:right">$0.00</b></h2>
-      <button class="btn primary" style="width:100%;margin-top:10px" onclick="alert('Sale Completed!')">Complete Sale</button>
-    </div></div>`);
-  renderPOSProducts();
-}
-
-function renderPOSProducts(){
-  const el=document.getElementById("posProducts"); if(!el)return;
-  const q=(document.getElementById("posSearch")?.value||"").toLowerCase();
-  const rows=liveProducts.filter(p=>`${p.name} ${p.sku} ${p.barcode||""}`.toLowerCase().includes(q));
-  el.innerHTML=rows.map(p=>`<div class="card" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;padding:12px">
-    <div><b>${p.name}</b><div class="muted">${p.sku} • Stock: ${p.quantity}</div></div>
-    <button class="btn primary" onclick="addToCart(${p.id})">$${Number(p.sale_price).toFixed(2)} ＋</button>
-  </div>`).join("");
-}
-
-function addToCart(id){
-  const p=liveProducts.find(x=>x.id===id); if(!p)return;
-  const existing=cart.find(x=>x.product_id===id);
-  if(existing){existing.quantity++;}else cart.push({product_id:id,name:p.name,price:Number(p.sale_price),quantity:1});
+function addToCart(name, price) {
+  cart.push({ name, price });
   renderCart();
 }
 
-function renderCart(){
-  const lines=document.getElementById("cartLines"); if(!lines)return;
-  let sub=0;
-  lines.innerHTML=cart.map((x,i)=>{let t=x.price*x.quantity;sub+=t;return `<div style="padding:9px 0;border-bottom:1px solid var(--border)">
-    <b>${x.name}</b><span style="float:right">$${t.toFixed(2)}</span><div class="muted">Qty ${x.quantity}</div></div>`}).join("")||`<div class="empty">Cart is empty.</div>`;
-  document.getElementById("cartSub").textContent="$"+sub.toFixed(2);
-  document.getElementById("cartTotal").textContent="$"+sub.toFixed(2);
-  document.getElementById("cartCount").textContent=cart.reduce((a,x)=>a+x.quantity,0)+" items";
+function renderCart() {
+  const cartEl = document.getElementById('cartItems');
+  const totalEl = document.getElementById('cartTotal');
+  if (cart.length === 0) {
+    cartEl.innerHTML = '<p class="muted">Cart is empty</p>';
+    totalEl.textContent = '$0.00';
+    return;
+  }
+  let total = 0;
+  cartEl.innerHTML = cart.map((item, idx) => {
+    total += item.price;
+    return `<div style="display:flex;justify-content:space-between;margin:6px 0"><span>${item.name}</span><b>$${item.price.toFixed(2)}</b></div>`;
+  }).join('');
+  totalEl.textContent = '$' + total.toFixed(2);
 }
 
-function modulePage(t,s,action,body){contentEl.innerHTML=head(t,s,action)+`<div class="module">${body}</div>`}
-function catalogPage(category,title,subtitle){modulePage(title,subtitle,"",`<div class="empty">Catalog Preview for ${category}</div>`)}
-function barcodeCenterPage(){modulePage("Barcode Center","Generate Barcodes","",`<div class="empty">Barcode Center Ready</div>`)}
-function repairs(){modulePage("Repairs","Repair Center","",`<div class="empty">Repairs Module Ready</div>`)}
-function customers(){modulePage("Customers","Customer Records","",`<div class="empty">Customers Module Ready</div>`)}
-function suppliers(){modulePage("Suppliers","Supplier Records","",`<div class="empty">Suppliers Module Ready</div>`)}
-function purchases(){modulePage("Purchases","Purchase Orders","",`<div class="empty">Purchases Module Ready</div>`)}
-function sales(){modulePage("Sales","Sales History","",`<div class="empty">Sales Module Ready</div>`)}
-function expenses(){modulePage("Expenses","Expense Tracker","",`<div class="empty">Expenses Module Ready</div>`)}
-function stockLivePage(){modulePage("Stock","Stock Management","",`<div class="empty">Stock Module Ready</div>`)}
-function reports(){modulePage("Reports","Business Analytics","",`<div class="empty">Reports Module Ready</div>`)}
-function users(){modulePage("Users","User Permissions","",`<div class="empty">Users Module Ready</div>`)}
-function settings(){modulePage("Settings","System Settings","",`<div class="empty">Settings Module Ready</div>`)}
+function completeSale() {
+  if (cart.length === 0) return alert('Cart is empty!');
+  alert('Order completed successfully!');
+  cart = [];
+  renderCart();
+}
 
-document.addEventListener("keydown",e=>{if(e.key==="Enter"&&document.activeElement&&(document.activeElement.id==="u"||document.activeElement.id==="p"))login()});
+function repairs() { contentEl.innerHTML = head("Repair Center", "Track device repairs and tickets.") + `<div class="module"><div class="empty">No active repair tickets.</div></div>`; }
+function customers() { contentEl.innerHTML = head("Customers", "Customer directory and account history.") + `<div class="module"><div class="empty">No registered customers.</div></div>`; }
+function sales() { contentEl.innerHTML = head("Sales History", "Past invoices and sales reports.") + `<div class="module"><div class="empty">No recent sales records.</div></div>`; }
+function settings() { contentEl.innerHTML = head("Settings", "Configuration and system preferences.") + `<div class="module"><div class="empty">Settings stored locally.</div></div>`; }
+
+document.addEventListener("keydown", e => {
+  if (e.key === "Enter" && document.activeElement && (document.activeElement.id === "u" || document.activeElement.id === "p")) login();
+});
 </script>
 </body>
 </html>
