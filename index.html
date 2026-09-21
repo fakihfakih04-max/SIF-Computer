@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- SIF ONLINE FIXED BUILD 2026-09-21 -->
+<!-- SIF FULL ONLINE WORKING BUILD v6 2026-09-21 -->
 <meta charset="UTF-8">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
@@ -13,18 +13,17 @@
 *{box-sizing:border-box}body{margin:0;font-family:Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text)}
 button,input,select,textarea{font:inherit}.hidden{display:none!important}
 .login{min-height:100vh;display:grid;place-items:center;background:linear-gradient(135deg,#04101f,#0b2748)}
-.login-card{width:410px;max-width:92vw;background:#fff;border-radius:22px;padding:36px;box-shadow:0 25px 70px #0006}.mark{font-size:48px;font-weight:900;font-style:italic;color:#087fea}.brand-logo{width:92px;height:92px;object-fit:contain;display:block;margin:0 auto 10px}.side-logo{width:76px;height:76px;object-fit:contain;display:block;margin:0 auto 8px}.brand{text-align:center}.brand b{display:none}.login-card h1{margin:5px 0}.login-card p{color:var(--muted)}label{font-size:12px;font-weight:700;display:block;margin:13px 0 6px}input,select,textarea{width:100%;padding:11px;border:1px solid var(--border);border-radius:9px;outline:0;background:#fff}.btn{border:0;border-radius:9px;padding:10px 15px;font-weight:700;cursor:pointer}.primary{background:linear-gradient(90deg,#087ff0,#16b5f1);color:#fff}.light{background:#edf3f9;color:#20496e}.danger{background:#fff0f1;color:#c53b49}
+.login-card{width:410px;max-width:92vw;background:#fff;border-radius:22px;padding:36px;box-shadow:0 25px 70px #0006}.mark{font-size:48px;font-weight:900;font-style:italic;color:#087fea}.brand{text-align:center}.login-card h1{margin:5px 0}.login-card p{color:var(--muted)}label{font-size:12px;font-weight:700;display:block;margin:13px 0 6px}input,select,textarea{width:100%;padding:11px;border:1px solid var(--border);border-radius:9px;outline:0;background:#fff}.btn{border:0;border-radius:9px;padding:10px 15px;font-weight:700;cursor:pointer}.primary{background:linear-gradient(90deg,#087ff0,#16b5f1);color:#fff}.light{background:#edf3f9;color:#20496e}.danger{background:#fff0f1;color:#c53b49}
 .app{display:flex;min-height:100vh}.side{width:255px;position:fixed;left:0;top:0;bottom:0;background:linear-gradient(180deg,#061324,#0a1d35);color:#d7e5f6;padding:18px 13px;overflow:auto;z-index:10}.brand{padding:5px 12px 20px;border-bottom:1px solid #fff1}.brand b{font-size:32px;font-style:italic;background:linear-gradient(90deg,#fff,#2ac7ff);color:transparent;background-clip:text}.brand small{display:block;color:#8da4c0;margin-top:3px}.nav{margin-top:12px}.nav button{width:100%;border:0;background:transparent;color:#aebfd3;text-align:left;padding:10px 12px;border-radius:9px;margin:2px 0;cursor:pointer}.nav button:hover,.nav button.active{background:linear-gradient(90deg,#087ff0,#12a6e9);color:#fff}.nav span{margin-left:9px}.side-foot{font-size:10px;color:#6f87a3;padding:20px 12px}
 .main{margin-left:255px;width:calc(100% - 255px)}.top{height:70px;background:#fff;border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 25px;gap:14px;position:sticky;top:0;z-index:5}.hamb{display:none}.search{flex:1;max-width:600px;background:#f5f8fc;border:1px solid #edf1f5;border-radius:10px;padding:10px 13px}.search input{border:0;background:transparent;padding:0}.user{margin-left:auto;display:flex;align-items:center;gap:9px}.avatar{width:36px;height:36px;border-radius:50%;background:#0b294a;color:#fff;display:grid;place-items:center;font-weight:800}.user small{display:block;color:#8995a7;font-size:10px}
-.content{padding:25px}.head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.head h1{margin:0;font-size:25px}.head p{margin:4px 0;color:var(--muted);font-size:12px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.card{background:var(--card);border:1px solid var(--border);border-radius:13px;padding:17px;box-shadow:0 5px 18px #1231}.stat{display:flex;justify-content:space-between}.stat h2{margin:7px 0 3px;font-size:25px}.stat small{color:var(--muted);font-weight:600}.icon{width:44px;height:44px;border-radius:11px;background:#e8f4ff;color:#087ff0;display:grid;place-items:center;font-size:20px}.green{color:var(--green)}.orange{color:var(--orange)}.red{color:var(--red)}
-.grid2{display:grid;grid-template-columns:1.35fr 1fr;gap:14px;margin-top:14px}.title{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px}.title b{font-size:14px}.muted{color:var(--muted);font-size:11px}.bars{height:190px;display:flex;align-items:end;gap:12px;padding:5px;border-bottom:1px solid var(--border)}.bar{flex:1;background:linear-gradient(#149cf4,#0874d6);border-radius:7px 7px 0 0;min-width:20px}.bar i{display:block;text-align:center;font-size:9px;color:#8290a3;margin-top:calc(100% + 7px);font-style:normal}
-.quick{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin-top:14px}.quick button{padding:14px 7px;border:1px solid var(--border);background:#fff;border-radius:10px;cursor:pointer;font-weight:700;color:#294a6d}.quick button:hover{border-color:#75bdf7}
-table{width:100%;border-collapse:collapse}th,td{padding:11px 8px;border-bottom:1px solid var(--border);text-align:left;font-size:12px}th{color:#78869a;font-size:10px}.badge{padding:4px 8px;border-radius:20px;font-size:9px;font-weight:800}.paid{background:#e5f8ef;color:#13875a}.pending{background:#fff2df;color:#b76b0c}.progress{background:#e8f3ff;color:#0875db}
-.module{background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px}.toolbar{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:15px}.toolbar input,.toolbar select{max-width:240px}.form-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.form-actions{margin-top:15px;display:flex;gap:8px}.empty{padding:45px;text-align:center;color:var(--muted)}
-.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.kpi{padding:16px;border:1px solid var(--border);border-radius:11px}.kpi b{font-size:22px;display:block;margin-top:5px}
-.dashboard-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.dash-kpi{position:relative;overflow:hidden}.dash-kpi .kpi-icon{position:absolute;right:16px;top:16px;width:42px;height:42px;border-radius:12px;background:#eaf5ff;display:grid;place-items:center;font-size:20px}.dash-kpi .kpi-value{font-size:26px;font-weight:900;margin:7px 0}.dash-kpi .kpi-sub{font-size:11px;color:var(--muted);font-weight:700}.dashboard-section{margin-top:14px}.dash-chart{height:240px;display:flex;align-items:flex-end;gap:10px;padding:18px 8px 28px;border-bottom:1px solid var(--border)}.dash-chart-col{flex:1;display:flex;flex-direction:column;align-items:center;height:100%;justify-content:flex-end;gap:6px}.dash-bar-wrap{height:190px;width:100%;display:flex;align-items:flex-end}.dash-bar{width:100%;min-height:3px;border-radius:8px 8px 2px 2px;background:linear-gradient(#17a2f5,#0874d6);position:relative}.dash-bar:hover{filter:brightness(1.05)}.dash-bar em{position:absolute;left:50%;transform:translateX(-50%);top:-20px;font-size:10px;font-style:normal;font-weight:800;white-space:nowrap}.dash-day{font-size:10px;color:var(--muted);font-weight:700}.dash-two{display:grid;grid-template-columns:1.25fr .9fr;gap:14px}.dash-table-wrap{overflow:auto}.dash-list{display:grid;gap:9px}.dash-list-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border)}.dash-list-row:last-child{border-bottom:0}.dash-pill{font-size:10px;padding:4px 8px;border-radius:999px;background:#eef6ff;color:#1769aa;font-weight:800}.dash-alert{background:#fff8ed;border-color:#f5d8a8}.dash-empty{padding:22px;text-align:center;color:var(--muted);font-size:12px}.dash-actions{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.dash-action{border:1px solid var(--border);background:#fff;border-radius:12px;padding:14px 8px;text-align:center;cursor:pointer;font-weight:800;color:#294a6d}.dash-action:hover{border-color:#75bdf7;transform:translateY(-1px)}
-@media(max-width:1050px){.stats{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}.quick{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:750px){.side{transform:translateX(-100%);transition:.2s}.side.open{transform:translateX(0)}.main{margin-left:0;width:100%}.hamb{display:block}.top{padding:0 12px}.search{display:none}.content{padding:15px}.stats{grid-template-columns:1fr}.quick{grid-template-columns:repeat(2,1fr)}.form-grid{grid-template-columns:1fr}.user>div:last-child{display:none}}
+.content{padding:25px}.head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.head h1{margin:0;font-size:25px}.head p{margin:4px 0;color:var(--muted);font-size:12px}.card{background:var(--card);border:1px solid var(--border);border-radius:13px;padding:17px;box-shadow:0 5px 18px #1231}
+.grid2{display:grid;grid-template-columns:1.35fr 1fr;gap:14px;margin-top:14px}.title{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px}.title b{font-size:14px}.muted{color:var(--muted);font-size:11px}
+table{width:100%;border-collapse:collapse}th,td{padding:11px 8px;border-bottom:1px solid var(--border);text-align:left;font-size:12px}th{color:#78869a;font-size:10px}.badge{padding:4px 8px;border-radius:20px;font-size:9px;font-weight:800}.paid{background:#e5f8ef;color:#13875a}.pending{background:#fff2df;color:#b76b0c}
+.module{background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px}.toolbar{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:15px}.toolbar input,.toolbar select{max-width:240px}.form-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.form-actions{margin-top:15px;display:flex;gap:8px}
+.dashboard-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.dash-kpi{position:relative;overflow:hidden}.dash-kpi .kpi-icon{position:absolute;right:16px;top:16px;width:42px;height:42px;border-radius:12px;background:#eaf5ff;display:grid;place-items:center;font-size:20px}.dash-kpi .kpi-value{font-size:26px;font-weight:900;margin:7px 0}.dash-kpi .kpi-sub{font-size:11px;color:var(--muted);font-weight:700}.dashboard-section{margin-top:14px}
+.dash-actions{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.dash-action{border:1px solid var(--border);background:#fff;border-radius:12px;padding:14px 8px;text-align:center;cursor:pointer;font-weight:800;color:#294a6d}.dash-action:hover{border-color:#75bdf7;transform:translateY(-1px)}
+.modal-back{position:fixed;inset:0;background:rgba(10,20,35,.48);display:grid;place-items:center;z-index:9999;padding:20px}.modal-box{background:#fff;border-radius:18px;max-width:900px;width:100%;max-height:92vh;overflow:auto;padding:22px;box-shadow:0 25px 80px rgba(0,0,0,.25)}
+@media(max-width:750px){.side{transform:translateX(-100%);transition:.2s}.side.open{transform:translateX(0)}.main{margin-left:0;width:100%}.hamb{display:block}.top{padding:0 12px}.search{display:none}.content{padding:15px}.dashboard-kpis{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -37,7 +36,6 @@ table{width:100%;border-collapse:collapse}th,td{padding:11px 8px;border-bottom:1
     <label>Username</label><input id="u" value="admin">
     <label>Password</label><input id="p" type="password" value="admin">
     <button class="btn primary" style="width:100%;margin-top:18px" onclick="login()">Sign In</button>
-    <p id="err" style="color:var(--red);text-align:center;margin-top:10px"></p>
   </div>
 </div>
 
@@ -48,17 +46,18 @@ table{width:100%;border-collapse:collapse}th,td{padding:11px 8px;border-bottom:1
       <button class="active" data-page="dashboard">⌂ <span>Dashboard</span></button>
       <button data-page="pos">▣ <span>POS</span></button>
       <button data-page="products">◈ <span>Products</span></button>
+      <button data-page="barcodes">▥ <span>Barcodes</span></button>
       <button data-page="repairs">⚒ <span>Repair Center</span></button>
       <button data-page="customers">♙ <span>Customers</span></button>
-      <button data-page="sales">↗ <span>Sales</span></button>
+      <button data-page="sales">↗ <span>Sales History</span></button>
       <button data-page="settings">⚙ <span>Settings</span></button>
     </div>
-    <div class="side-foot">SIF Mobile & Computer<br>Professional Web App</div>
+    <div class="side-foot">SIF Mobile & Computer<br>Professional Web System</div>
   </aside>
   <main class="main">
     <header class="top">
       <button class="btn light hamb" onclick="document.getElementById('side').classList.toggle('open')">☰</button>
-      <div class="search">⌕ <input placeholder="Search product, customer..."></div>
+      <div class="search">⌕ <input id="globalSearch" placeholder="Search product, customer..." oninput="handleSearch(this.value)"></div>
       <div class="user">
         <div class="avatar">A</div>
         <div><b>Admin</b><small>Administrator</small></div>
@@ -70,43 +69,30 @@ table{width:100%;border-collapse:collapse}th,td{padding:11px 8px;border-bottom:1
 </div>
 
 <script>
-// Mock API layer to prevent 404 errors on GitHub Pages static hosting
-const MOCK_DATA = {
-  "/api/settings": { usd_lbp: 89500, vat_rate: 11, company_name: "SIF Mobile & Computer" },
-  "/api/dashboard": {
-    totals: { customer_receivables: 450.00, products: 34, quantity: 182, low_stock: 2, stock_sales: 14500.00, customers: 12, suppliers: 4, repairs: 3 },
-    today: { sales: 850.00, sales_count: 4, purchases: 300.00, purchases_count: 1, expenses: 45.00, expenses_count: 2 },
-    sales_7_days: [
-      { date: "2026-09-15", total: 400 }, { date: "2026-09-16", total: 750 },
-      { date: "2026-09-17", total: 300 }, { date: "2026-09-18", total: 920 },
-      { date: "2026-09-19", total: 610 }, { date: "2026-09-20", total: 1100 },
-      { date: "2026-09-21", total: 850 }
-    ],
-    repair_status: { received: 2, ready: 1 },
-    top_products: [{ name: "iPhone 15 Pro", sku: "IPH15P", qty: 3, amount: 3300 }],
-    recent_sales: [{ invoice_no: "INV-001", created_at: new Date().toISOString(), customer_name: "Ali Ahmad", total: 1100, payment_method: "cash" }],
-    low_stock_items: [{ name: "USB-C Cable", sku: "USBC01", quantity: 2, reorder_level: 5 }]
-  },
-  "/api/products": [
-    { id: 1, sku: "IPH15P", name: "iPhone 15 Pro 256GB", barcode: "123456789", category: "Mobile", cost: 900, sale_price: 1100, quantity: 8, reorder_level: 2 },
-    { id: 2, sku: "S24U", name: "Samsung S24 Ultra", barcode: "987654321", category: "Mobile", cost: 850, sale_price: 1050, quantity: 4, reorder_level: 2 },
-    { id: 3, sku: "USBC01", name: "Fast USB-C Cable", barcode: "555666777", category: "Accessories", cost: 3, sale_price: 10, quantity: 2, reorder_level: 5 }
-  ]
-};
+// Local Database Engine for Offline/GitHub Pages hosting
+let products = JSON.parse(localStorage.getItem('sif_products')) || [
+  { id: 1, sku: "IPH15P", name: "iPhone 15 Pro 256GB", barcode: "123456789", category: "Mobile Phones", cost: 900, price: 1100, qty: 8 },
+  { id: 2, sku: "S24U", name: "Samsung S24 Ultra", barcode: "987654321", category: "Mobile Phones", cost: 850, price: 1050, qty: 4 },
+  { id: 3, sku: "USBC", name: "USB-C Fast Cable 1m", barcode: "555666777", category: "Accessories", cost: 3, price: 10, qty: 25 }
+];
 
-async function apiJSON(url, options = {}) {
-  try {
-    const res = await fetch(url, options);
-    if (!res.ok) throw new Error("API Route Missing");
-    return await res.json();
-  } catch (err) {
-    // Serve local data fallback for GitHub Pages
-    const cleanUrl = url.split('?')[0];
-    if (MOCK_DATA[cleanUrl]) {
-      return MOCK_DATA[cleanUrl];
-    }
-    return {};
-  }
+let repairsData = JSON.parse(localStorage.getItem('sif_repairs')) || [
+  { id: 1, ticket: "REP-001", customer: "Ali Ahmad", phone: "70 123 456", device: "iPhone 14 Pro", problem: "Screen Replacement", status: "In Progress", cost: 120 }
+];
+
+let customersData = JSON.parse(localStorage.getItem('sif_customers')) || [
+  { id: 1, name: "Ali Ahmad", phone: "70 123 456", balance: 0 },
+  { id: 2, name: "Walk-in Customer", phone: "-", balance: 0 }
+];
+
+let salesData = JSON.parse(localStorage.getItem('sif_sales')) || [];
+let cart = [];
+
+function saveData() {
+  localStorage.setItem('sif_products', JSON.stringify(products));
+  localStorage.setItem('sif_repairs', JSON.stringify(repairsData));
+  localStorage.setItem('sif_customers', JSON.stringify(customersData));
+  localStorage.setItem('sif_sales', JSON.stringify(salesData));
 }
 
 const contentEl = document.getElementById("content");
@@ -117,9 +103,7 @@ function login() {
   dashboard();
 }
 
-function logout() {
-  location.reload();
-}
+function logout() { location.reload(); }
 
 document.querySelectorAll("#nav button").forEach(b => {
   b.onclick = () => {
@@ -131,109 +115,308 @@ document.querySelectorAll("#nav button").forEach(b => {
 });
 
 function page(p) {
-  ({ dashboard, products: liveProductsPage, pos: livePOSPage, repairs, customers, sales, settings }[p] || dashboard)();
+  ({ dashboard, products: productsPage, pos: posPage, barcodes: barcodesPage, repairs: repairsPage, customers: customersPage, sales: salesPage, settings: settingsPage }[p] || dashboard)();
 }
 
 function head(t, s, btn = "") {
   return `<div class="head"><div><h1>${t}</h1><p>${s}</p></div>${btn}</div>`;
 }
 
-async function dashboard() {
-  contentEl.innerHTML = head("Dashboard", "Real-time overview of your SIF Mobile & Computer business.", `<button class="btn light" onclick="dashboard()">↻ Refresh</button>`);
-  const d = await apiJSON('/api/dashboard');
-  const t = d.totals || {}, today = d.today || {};
-  
+function openModal(title, body, actions = "") {
+  const old = document.getElementById("globalModal");
+  if (old) old.remove();
+  document.body.insertAdjacentHTML("beforeend", `
+    <div class="modal-back" id="globalModal">
+      <div class="modal-box">
+        <div class="title"><b>${title}</b><button class="btn light" onclick="globalModal.remove()">✕</button></div>
+        ${body}
+        <div class="form-actions" style="margin-top:20px">${actions}</div>
+      </div>
+    </div>`);
+}
+
+// ===== DASHBOARD =====
+function dashboard() {
+  const totalSales = salesData.reduce((a, b) => a + b.total, 0);
+  contentEl.innerHTML = head("Dashboard", "Real-time overview of your SIF Mobile & Computer business.", `<button class="btn primary" onclick="page('pos')">＋ New Sale</button>`);
   contentEl.innerHTML += `
     <div class="dashboard-kpis">
-      <div class="card dash-kpi"><small>Today's Sales</small><div class="kpi-value">$${Number(today.sales||0).toFixed(2)}</div><div class="kpi-sub">${today.sales_count||0} invoices today</div><div class="kpi-icon">↗</div></div>
-      <div class="card dash-kpi"><small>Total Products</small><div class="kpi-value">${t.products||0}</div><div class="kpi-sub">Active catalog items</div><div class="kpi-icon">◈</div></div>
-      <div class="card dash-kpi"><small>Low Stock Alert</small><div class="kpi-value orange">${t.low_stock||0}</div><div class="kpi-sub">Items need reordering</div><div class="kpi-icon">!</div></div>
-      <div class="card dash-kpi"><small>System Status</small><div class="kpi-value green" style="font-size:18px">Active (Online)</div><div class="kpi-sub">GitHub Hosted</div><div class="kpi-icon">✓</div></div>
+      <div class="card dash-kpi"><small>Total Revenue</small><div class="kpi-value">$${totalSales.toFixed(2)}</div><div class="kpi-sub">${salesData.length} sales total</div><div class="kpi-icon">↗</div></div>
+      <div class="card dash-kpi"><small>Total Products</small><div class="kpi-value">${products.length}</div><div class="kpi-sub">Items in catalog</div><div class="kpi-icon">◈</div></div>
+      <div class="card dash-kpi"><small>Active Repairs</small><div class="kpi-value orange">${repairsData.length}</div><div class="kpi-sub">Repair tickets</div><div class="kpi-icon">⚒</div></div>
+      <div class="card dash-kpi"><small>System</small><div class="kpi-value green" style="font-size:18px">GitHub Ready</div><div class="kpi-sub">Offline Storage</div><div class="kpi-icon">✓</div></div>
     </div>
-    <div class="dash-actions dashboard-section" style="margin-top:20px">
+    <div class="dash-actions dashboard-section">
       <button class="dash-action" onclick="page('pos')">🛒<br>New Sale</button>
-      <button class="dash-action" onclick="page('products')">◈<br>Products</button>
-      <button class="dash-action" onclick="page('repairs')">⚒<br>Repairs</button>
+      <button class="dash-action" onclick="openAddProductModal()">＋<br>Add Product</button>
+      <button class="dash-action" onclick="openAddRepairModal()">⚒<br>New Repair</button>
+      <button class="dash-action" onclick="page('barcodes')">▥<br>Barcodes</button>
       <button class="dash-action" onclick="page('sales')">↗<br>Sales History</button>
     </div>`;
 }
 
-async function liveProductsPage() {
-  contentEl.innerHTML = head("Products", "Manage inventory and stock levels.");
-  const products = await apiJSON('/api/products');
-  const rows = products.map(p => `
+// ===== PRODUCTS MODULE =====
+function productsPage() {
+  contentEl.innerHTML = head("Products", "Manage inventory, stock levels, and prices.", `<button class="btn primary" onclick="openAddProductModal()">＋ Add Product</button>`);
+  renderProductsTable();
+}
+
+function renderProductsTable() {
+  const rows = products.map((p, i) => `
     <tr>
-      <td><b>${p.sku}</b></td><td>${p.name}</td><td>${p.category}</td>
-      <td>$${Number(p.cost).toFixed(2)}</td><td>$${Number(p.sale_price).toFixed(2)}</td>
-      <td>${p.quantity}</td>
-      <td><span class="badge ${p.quantity <= p.reorder_level ? 'pending' : 'paid'}">${p.quantity <= p.reorder_level ? 'Low Stock' : 'In Stock'}</span></td>
-    </tr>`).join('');
+      <td><b>${p.sku}</b></td><td>${p.name}</td><td>${p.category}</td><td>${p.barcode || "-"}</td>
+      <td>$${Number(p.cost).toFixed(2)}</td><td><b>$${Number(p.price).toFixed(2)}</b></td>
+      <td>${p.qty}</td>
+      <td><span class="badge ${p.qty <= 3 ? 'pending' : 'paid'}">${p.qty <= 3 ? 'Low Stock' : 'In Stock'}</span></td>
+      <td>
+        <button class="btn light" onclick="openEditProductModal(${i})">Edit</button>
+        <button class="btn danger" onclick="deleteProduct(${i})">Delete</button>
+      </td>
+    </tr>`).join("");
 
   contentEl.innerHTML += `
     <div class="module">
-      <table>
-        <thead><tr><th>SKU</th><th>Product Name</th><th>Category</th><th>Cost</th><th>Retail Price</th><th>Stock</th><th>Status</th></tr></thead>
-        <tbody>${rows}</tbody>
-      </table>
-    </div>`;
-}
-
-let cart = [];
-async function livePOSPage() {
-  contentEl.innerHTML = head("Point of Sale", "Scan barcodes or add items directly to checkout.");
-  const products = await apiJSON('/api/products');
-  
-  const productCards = products.map(p => `
-    <div class="card" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;padding:12px">
-      <div><b>${p.name}</b><div class="muted">${p.sku} • Stock: ${p.quantity}</div></div>
-      <button class="btn primary" onclick="addToCart('${p.name}', ${p.sale_price})">$${Number(p.sale_price).toFixed(2)} ＋</button>
-    </div>`).join('');
-
-  contentEl.innerHTML += `
-    <div class="grid2">
-      <div>${productCards}</div>
-      <div class="card">
-        <h3>Current Order</h3>
-        <div id="cartItems"><p class="muted">Cart is empty</p></div>
-        <hr>
-        <h2>Total: <span id="cartTotal">$0.00</span></h2>
-        <button class="btn primary" style="width:100%" onclick="completeSale()">Complete Order</button>
+      <div class="toolbar"><input id="pSearch" placeholder="Search SKU or product..." oninput="filterProductsTable(this.value)"></div>
+      <div style="overflow:auto">
+        <table>
+          <thead><tr><th>SKU</th><th>Product Name</th><th>Category</th><th>Barcode</th><th>Cost</th><th>Sale Price</th><th>Qty</th><th>Status</th><th>Actions</th></tr></thead>
+          <tbody id="pTableBody">${rows}</tbody>
+        </table>
       </div>
     </div>`;
 }
 
-function addToCart(name, price) {
-  cart.push({ name, price });
+function filterProductsTable(q) {
+  const filtered = products.filter(p => `${p.name} ${p.sku} ${p.barcode}`.toLowerCase().includes(q.toLowerCase()));
+  document.getElementById("pTableBody").innerHTML = filtered.map((p, i) => `
+    <tr>
+      <td><b>${p.sku}</b></td><td>${p.name}</td><td>${p.category}</td><td>${p.barcode || "-"}</td>
+      <td>$${Number(p.cost).toFixed(2)}</td><td><b>$${Number(p.price).toFixed(2)}</b></td><td>${p.qty}</td>
+      <td><span class="badge ${p.qty <= 3 ? 'pending' : 'paid'}">${p.qty <= 3 ? 'Low Stock' : 'In Stock'}</span></td>
+      <td>
+        <button class="btn light" onclick="openEditProductModal(${i})">Edit</button>
+        <button class="btn danger" onclick="deleteProduct(${i})">Delete</button>
+      </td>
+    </tr>`).join("");
+}
+
+function openAddProductModal() {
+  openModal("Add Product", `
+    <div class="form-grid">
+      <div><label>SKU *</label><input id="newSku"></div>
+      <div><label>Product Name *</label><input id="newName"></div>
+      <div><label>Barcode</label><input id="newBarcode"></div>
+      <div><label>Category</label><select id="newCat"><option>Mobile Phones</option><option>Computers</option><option>Accessories</option></select></div>
+      <div><label>Cost ($)</label><input id="newCost" type="number" value="0"></div>
+      <div><label>Sale Price ($)</label><input id="newPrice" type="number" value="0"></div>
+      <div><label>Quantity</label><input id="newQty" type="number" value="1"></div>
+    </div>`, `<button class="btn primary" onclick="saveNewProduct()">Save Product</button>`);
+}
+
+function saveNewProduct() {
+  const name = document.getElementById("newName").value.trim();
+  const sku = document.getElementById("newSku").value.trim();
+  if (!name || !sku) return alert("Please fill in SKU and Name.");
+
+  products.push({
+    id: Date.now(),
+    sku, name,
+    barcode: document.getElementById("newBarcode").value.trim(),
+    category: document.getElementById("newCat").value,
+    cost: Number(document.getElementById("newCost").value || 0),
+    price: Number(document.getElementById("newPrice").value || 0),
+    qty: Number(document.getElementById("newQty").value || 0)
+  });
+
+  saveData();
+  globalModal.remove();
+  productsPage();
+}
+
+function openEditProductModal(i) {
+  const p = products[i];
+  openModal("Edit Product", `
+    <div class="form-grid">
+      <div><label>SKU</label><input id="eSku" value="${p.sku}"></div>
+      <div><label>Product Name</label><input id="eName" value="${p.name}"></div>
+      <div><label>Barcode</label><input id="eBarcode" value="${p.barcode}"></div>
+      <div><label>Cost ($)</label><input id="eCost" type="number" value="${p.cost}"></div>
+      <div><label>Sale Price ($)</label><input id="ePrice" type="number" value="${p.price}"></div>
+      <div><label>Quantity</label><input id="eQty" type="number" value="${p.qty}"></div>
+    </div>`, `<button class="btn primary" onclick="saveProductEdit(${i})">Save Changes</button>`);
+}
+
+function saveProductEdit(i) {
+  products[i].sku = document.getElementById("eSku").value;
+  products[i].name = document.getElementById("eName").value;
+  products[i].barcode = document.getElementById("eBarcode").value;
+  products[i].cost = Number(document.getElementById("eCost").value);
+  products[i].price = Number(document.getElementById("ePrice").value);
+  products[i].qty = Number(document.getElementById("eQty").value);
+  saveData();
+  globalModal.remove();
+  productsPage();
+}
+
+function deleteProduct(i) {
+  if (confirm("Delete product " + products[i].name + "?")) {
+    products.splice(i, 1);
+    saveData();
+    productsPage();
+  }
+}
+
+// ===== POS MODULE =====
+function posPage() {
+  contentEl.innerHTML = head("Point of Sale", "Scan barcodes or click items to checkout.", `<button class="btn light" onclick="cart=[];renderCart()">Clear Cart</button>`);
+  
+  const productCards = products.map((p, i) => `
+    <div class="card" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;padding:12px">
+      <div><b>${p.name}</b><div class="muted">${p.sku} • Stock: ${p.qty}</div></div>
+      <button class="btn primary" onclick="addToCart(${i})">$${Number(p.price).toFixed(2)} ＋</button>
+    </div>`).join("");
+
+  contentEl.innerHTML += `
+    <div class="grid2">
+      <div><div class="toolbar"><input placeholder="Filter products..." oninput="filterPOSProducts(this.value)"></div><div id="posProducts">${productCards}</div></div>
+      <div class="card">
+        <div class="title"><b>Current Invoice</b><span id="cartCount" class="muted">0 items</span></div>
+        <div id="cartLines"><p class="muted">Cart is empty</p></div>
+        <hr>
+        <h2>Total: <span id="cartTotal" style="float:right">$0.00</span></h2>
+        <button class="btn primary" style="width:100%;margin-top:12px" onclick="checkout()">Complete Order</button>
+      </div>
+    </div>`;
+}
+
+function addToCart(i) {
+  const p = products[i];
+  const item = cart.find(x => x.id === p.id);
+  if (item) { item.qty++; } else { cart.push({ id: p.id, name: p.name, price: p.price, qty: 1 }); }
   renderCart();
 }
 
 function renderCart() {
-  const cartEl = document.getElementById('cartItems');
-  const totalEl = document.getElementById('cartTotal');
+  const lines = document.getElementById("cartLines");
+  const totalEl = document.getElementById("cartTotal");
+  const countEl = document.getElementById("cartCount");
+  if (!lines) return;
+
   if (cart.length === 0) {
-    cartEl.innerHTML = '<p class="muted">Cart is empty</p>';
-    totalEl.textContent = '$0.00';
+    lines.innerHTML = '<p class="muted">Cart is empty</p>';
+    totalEl.textContent = "$0.00";
+    countEl.textContent = "0 items";
     return;
   }
+
   let total = 0;
-  cartEl.innerHTML = cart.map((item, idx) => {
-    total += item.price;
-    return `<div style="display:flex;justify-content:space-between;margin:6px 0"><span>${item.name}</span><b>$${item.price.toFixed(2)}</b></div>`;
-  }).join('');
-  totalEl.textContent = '$' + total.toFixed(2);
+  let count = 0;
+  lines.innerHTML = cart.map(item => {
+    const t = item.price * item.qty;
+    total += t;
+    count += item.qty;
+    return `<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #eee">
+      <div><b>${item.name}</b><br><small>$${item.price} × ${item.qty}</small></div>
+      <b>$${t.toFixed(2)}</b>
+    </div>`;
+  }).join("");
+
+  totalEl.textContent = "$" + total.toFixed(2);
+  countEl.textContent = count + " items";
 }
 
-function completeSale() {
-  if (cart.length === 0) return alert('Cart is empty!');
-  alert('Order completed successfully!');
+function checkout() {
+  if (cart.length === 0) return alert("Cart is empty.");
+  const total = cart.reduce((a, b) => a + (b.price * b.qty), 0);
+  
+  salesData.unshift({
+    inv: "INV-" + Date.now().toString().slice(-4),
+    date: new Date().toLocaleString(),
+    total: total,
+    items: [...cart]
+  });
+
   cart = [];
-  renderCart();
+  saveData();
+  alert("Invoice Saved Successfully!");
+  posPage();
 }
 
-function repairs() { contentEl.innerHTML = head("Repair Center", "Track device repairs and tickets.") + `<div class="module"><div class="empty">No active repair tickets.</div></div>`; }
-function customers() { contentEl.innerHTML = head("Customers", "Customer directory and account history.") + `<div class="module"><div class="empty">No registered customers.</div></div>`; }
-function sales() { contentEl.innerHTML = head("Sales History", "Past invoices and sales reports.") + `<div class="module"><div class="empty">No recent sales records.</div></div>`; }
-function settings() { contentEl.innerHTML = head("Settings", "Configuration and system preferences.") + `<div class="module"><div class="empty">Settings stored locally.</div></div>`; }
+// ===== BARCODE CENTER =====
+function barcodesPage() {
+  contentEl.innerHTML = head("Barcodes", "Generate and print item barcodes.");
+  const list = products.map(p => `
+    <div class="card" style="margin-bottom:10px;display:flex;justify-content:space-between;align-items:center">
+      <div><b>${p.name}</b><br><small>Barcode: ${p.barcode || "No Barcode"}</small></div>
+      <button class="btn light" onclick="printBarcode('${p.name}', '${p.barcode || p.sku}')">🖨 Print Barcode</button>
+    </div>`).join("");
+  contentEl.innerHTML += `<div class="module">${list}</div>`;
+}
+
+function printBarcode(name, code) {
+  const w = window.open("", "_blank");
+  w.document.write(`<html><body style="text-align:center;font-family:sans-serif;padding:20px">
+    <h2>${name}</h2>
+    <div style="font-size:32px;font-weight:bold;letter-spacing:4px;border:2px solid #000;padding:10px;display:inline-block">${code}</div>
+    <script>window.print();<\/script>
+  </body></html>`);
+}
+
+// ===== REPAIRS MODULE =====
+function repairsPage() {
+  contentEl.innerHTML = head("Repair Center", "Track device repairs.", `<button class="btn primary" onclick="openAddRepairModal()">＋ New Repair</button>`);
+  const rows = repairsData.map((r, i) => `
+    <tr>
+      <td><b>${r.ticket}</b></td><td>${r.customer}</td><td>${r.phone}</td><td>${r.device}</td><td>${r.problem}</td>
+      <td><span class="badge pending">${r.status}</span></td><td>$${r.cost}</td>
+      <td><button class="btn danger" onclick="repairsData.splice(${i},1);saveData();repairsPage()">Complete/Delete</button></td>
+    </tr>`).join("");
+  contentEl.innerHTML += `<div class="module"><table><thead><tr><th>Ticket</th><th>Customer</th><th>Phone</th><th>Device</th><th>Problem</th><th>Status</th><th>Cost</th><th>Action</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+}
+
+function openAddRepairModal() {
+  openModal("New Repair Ticket", `
+    <div class="form-grid">
+      <div><label>Customer Name</label><input id="rCust"></div>
+      <div><label>Phone</label><input id="rPhone"></div>
+      <div><label>Device</label><input id="rDev"></div>
+      <div style="grid-column:1/-1"><label>Problem</label><input id="rProb"></div>
+      <div><label>Cost ($)</label><input id="rCost" type="number" value="0"></div>
+    </div>`, `<button class="btn primary" onclick="saveRepair()">Save Repair</button>`);
+}
+
+function saveRepair() {
+  repairsData.push({
+    id: Date.now(),
+    ticket: "REP-" + Math.floor(100 + Math.random() * 900),
+    customer: document.getElementById("rCust").value,
+    phone: document.getElementById("rPhone").value,
+    device: document.getElementById("rDev").value,
+    problem: document.getElementById("rProb").value,
+    status: "In Progress",
+    cost: Number(document.getElementById("rCost").value || 0)
+  });
+  saveData();
+  globalModal.remove();
+  repairsPage();
+}
+
+// ===== CUSTOMERS & SALES HISTORY =====
+function customersPage() {
+  contentEl.innerHTML = head("Customers", "Directory of store clients.");
+  const rows = customersData.map(c => `<tr><td><b>${c.name}</b></td><td>${c.phone}</td><td>$${c.balance}</td></tr>`).join("");
+  contentEl.innerHTML += `<div class="module"><table><thead><tr><th>Name</th><th>Phone</th><th>Balance</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+}
+
+function salesPage() {
+  contentEl.innerHTML = head("Sales History", "Archived store orders.");
+  const rows = salesData.map(s => `<tr><td><b>${s.inv}</b></td><td>${s.date}</td><td>$${s.total.toFixed(2)}</td></tr>`).join("") || '<tr><td colspan="3" class="empty">No sales records.</td></tr>';
+  contentEl.innerHTML += `<div class="module"><table><thead><tr><th>Invoice</th><th>Date</th><th>Total Amount</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+}
+
+function settingsPage() {
+  contentEl.innerHTML = head("Settings", "Store configuration.") + `<div class="module"><h3>SIF Mobile & Computer App</h3><p>Running in offline GitHub mode. All added products, orders, and repairs persist in your browser local storage.</p></div>`;
+}
 
 document.addEventListener("keydown", e => {
   if (e.key === "Enter" && document.activeElement && (document.activeElement.id === "u" || document.activeElement.id === "p")) login();
