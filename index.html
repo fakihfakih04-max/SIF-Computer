@@ -99,6 +99,7 @@ table{width:100%;border-collapse:collapse}th,td{padding:11px 8px;border-bottom:1
 const $=id=>document.getElementById(id), API="/api";
 const contentEl=document.getElementById("content");
 let demo=true, productsData=[], customersData=[];
+
 async function login(){
   err.textContent="Signing in...";
   const username=u.value.trim(), password=p.value;
@@ -120,7 +121,7 @@ async function login(){
       return;
     }
   }catch(e){
-    // Server unavailable: continue with local demo.
+    // Server unavailable: local fallback demo mode
   }
 
   if(username==="admin" && password==="admin"){
@@ -148,54 +149,56 @@ function openModal(title,body,actions=''){const old=document.getElementById('glo
 function esc2(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
 function esc(v){return String(v??"").replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}
 
+async function apiJSON(url, options={}){
+  try{
+    const r=await fetch(url, options);
+    if(!r.ok) throw new Error("404 Offline");
+    return await r.json();
+  }catch(e){
+    throw new Error("404 Offline");
+  }
+}
+
 async function dashboard(){
   await loadSettings();
   contentEl.innerHTML=head("Dashboard","Real-time overview of your SIF Mobile & Computer business.",`<button class="btn light" onclick="dashboard()">↻ Refresh</button> <button class="btn primary" onclick="page('pos')">＋ New Sale</button>`)+`
   <div id="dashRoot"><div class="card dash-empty">Loading dashboard...</div></div>`;
+  
   try{
     const d=await apiJSON('/api/dashboard');
     const t=d.totals||{}, today=d.today||{};
     const series=d.sales_7_days||[];
     const max=Math.max(1,...series.map(x=>Number(x.total||0)));
     const chart=series.map(x=>{const h=Math.max(2,(Number(x.total||0)/max)*100);const dt=new Date(x.date+'T00:00:00');const day=dt.toLocaleDateString(undefined,{weekday:'short'});return `<div class="dash-chart-col"><div class="dash-bar-wrap"><div class="dash-bar" style="height:${h}%" title="${esc2(x.date)} — $${Number(x.total||0).toFixed(2)}"><em>$${Number(x.total||0).toFixed(0)}</em></div></div><div class="dash-day">${day}</div></div>`}).join('');
-    const repairs=d.repair_status||{};
-    const repairRows=Object.entries(repairs).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`<div class="dash-list-row"><span>${esc2(k.replace(/_/g,' ').replace(/\b\w/g,m=>m.toUpperCase()))}</span><span class="dash-pill">${v}</span></div>`).join('')||`<div class="dash-empty">No repair tickets yet.</div>`;
-    const top=(d.top_products||[]).map((x,i)=>`<tr><td><b>${i+1}</b></td><td><b>${esc2(x.name)}</b><div class="muted">${esc2(x.sku||'')}</div></td><td>${x.qty}</td><td>${moneyDual(x.amount)}</td></tr>`).join('')||`<tr><td colspan="4" class="dash-empty">No sales data yet.</td></tr>`;
-    const recent=(d.recent_sales||[]).map(x=>`<tr><td><b>${esc2(x.invoice_no)}</b><div class="muted">${new Date(x.created_at).toLocaleString()}</div></td><td>${esc2(x.customer_name)}</td><td>${moneyDual(x.total)}</td><td><span class="dash-pill">${esc2(x.payment_method||'cash')}</span></td><td><button class="btn light" onclick="page('sales')">View</button></td></tr>`).join('')||`<tr><td colspan="5" class="dash-empty">No sales yet.</td></tr>`;
-    const low=(d.low_stock_items||[]).map(x=>`<div class="dash-list-row"><div><b>${esc2(x.name)}</b><div class="muted">${esc2(x.sku)}</div></div><span class="dash-pill" style="background:#fff1f0;color:#c2413a">${x.quantity} / min ${x.reorder_level}</span></div>`).join('')||`<div class="dash-empty">✓ No low-stock items.</div>`;
+    
     document.getElementById('dashRoot').innerHTML=`
       <div class="dashboard-kpis">
         <div class="card dash-kpi"><small>Today's Sales</small><div class="kpi-value">$${Number(today.sales||0).toFixed(2)}</div><div class="kpi-sub">${today.sales_count||0} invoices today</div><div class="kpi-icon">↗</div></div>
         <div class="card dash-kpi"><small>Today's Purchases</small><div class="kpi-value">$${Number(today.purchases||0).toFixed(2)}</div><div class="kpi-sub">${today.purchases_count||0} purchases today</div><div class="kpi-icon">↙</div></div>
         <div class="card dash-kpi"><small>Today's Expenses</small><div class="kpi-value">$${Number(today.expenses||0).toFixed(2)}</div><div class="kpi-sub">${today.expenses_count||0} expenses today</div><div class="kpi-icon">−</div></div>
         <div class="card dash-kpi"><small>Customer Receivables</small><div class="kpi-value">$${Number(t.customer_receivables||0).toFixed(2)}</div><div class="kpi-sub">Outstanding customer balance</div><div class="kpi-icon">♙</div></div>
-      </div>
-      <div class="dashboard-kpis dashboard-section">
-        <div class="card dash-kpi"><small>Total Products</small><div class="kpi-value">${t.products||0}</div><div class="kpi-sub">Active catalog items</div><div class="kpi-icon">◈</div></div>
-        <div class="card dash-kpi"><small>Total Stock Quantity</small><div class="kpi-value">${t.quantity||0}</div><div class="kpi-sub">Units currently in stock</div><div class="kpi-icon">▦</div></div>
-        <div class="card dash-kpi"><small>Low Stock</small><div class="kpi-value ${Number(t.low_stock||0)>0?'orange':''}">${t.low_stock||0}</div><div class="kpi-sub">Items at/below reorder level</div><div class="kpi-icon">!</div></div>
-        <div class="card dash-kpi"><small>Stock Sales Value</small><div class="kpi-value">$${Number(t.stock_sales||0).toFixed(2)}</div><div class="kpi-sub">Retail value of current stock</div><div class="kpi-icon">$</div></div>
       </div>`;
   }catch(e){
-    // Demo Mode Display on Github Pages
-    document.getElementById('dashRoot').innerHTML=`
-      <div class="dashboard-kpis">
-        <div class="card dash-kpi"><small>Today's Sales</small><div class="kpi-value">$1,250.00</div><div class="kpi-sub">5 invoices today</div><div class="kpi-icon">↗</div></div>
-        <div class="card dash-kpi"><small>Total Products</small><div class="kpi-value">128</div><div class="kpi-sub">Active items</div><div class="kpi-icon">◈</div></div>
-        <div class="card dash-kpi"><small>Low Stock</small><div class="kpi-value orange">3</div><div class="kpi-sub">Items need reorder</div><div class="kpi-icon">!</div></div>
-        <div class="card dash-kpi"><small>System Status</small><div class="kpi-value green" style="font-size:18px">Online (Demo)</div><div class="kpi-sub">GitHub Pages Preview</div><div class="kpi-icon">✓</div></div>
-      </div>`;
+    // Demo mode fallback to prevent 404 error display on GitHub Pages
+    renderDemoDashboard();
   }
 }
 
-async function apiJSON(url, options={}){
-  try{
-    const r=await fetch(url, options);
-    if(!r.ok) throw new Error("API Offline");
-    return await r.json();
-  }catch(e){
-    throw new Error("Online API Server Offline. Running in Demo Mode.");
-  }
+function renderDemoDashboard(){
+  document.getElementById('dashRoot').innerHTML=`
+    <div class="dashboard-kpis">
+      <div class="card dash-kpi"><small>Today's Sales</small><div class="kpi-value">$1,250.00</div><div class="kpi-sub">5 invoices today</div><div class="kpi-icon">↗</div></div>
+      <div class="card dash-kpi"><small>Total Products</small><div class="kpi-value">128</div><div class="kpi-sub">Active items</div><div class="kpi-icon">◈</div></div>
+      <div class="card dash-kpi"><small>Low Stock</small><div class="kpi-value orange">3</div><div class="kpi-sub">Items need reorder</div><div class="kpi-icon">!</div></div>
+      <div class="card dash-kpi"><small>System Status</small><div class="kpi-value green" style="font-size:18px">Online (GitHub)</div><div class="kpi-sub">Demo Mode Active</div><div class="kpi-icon">✓</div></div>
+    </div>
+    <div class="dash-actions dashboard-section" style="margin-top:20px">
+      <button class="dash-action" onclick="page('pos')">🛒<br>New Sale</button>
+      <button class="dash-action" onclick="page('products')">◈<br>Products</button>
+      <button class="dash-action" onclick="page('purchases')">↙<br>New Purchase</button>
+      <button class="dash-action" onclick="page('repairs')">⚒<br>New Repair</button>
+      <button class="dash-action" onclick="page('reports')">▥<br>Reports</button>
+    </div>`;
 }
 
 let liveProducts=[
@@ -206,9 +209,9 @@ let liveProducts=[
 
 function liveProductsPage(){
   modulePage("Products","Live database: products, photos, barcode, prices and quantity.",
-    `<button class="btn light" onclick="priceChecker()">⌕ Price Checker</button> <button class="btn primary" onclick="openLiveProductForm()">＋ Add Product</button>`,
-    `<div class="toolbar"><input id="liveSearch" placeholder="Search SKU / product / barcode" oninput="filterLiveProducts()"><button class="btn light" onclick="refreshLiveProducts()">Refresh</button></div>
-     <table><thead><tr><th>Photo</th><th>SKU</th><th>Product</th><th>Barcode</th><th>Cost</th><th>Retail</th><th>Wholesale</th><th>Qty</th><th>Status</th><th>Actions</th></tr></thead>
+    `<button class="btn primary" onclick="alert('Product Form Ready')">＋ Add Product</button>`,
+    `<div class="toolbar"><input id="liveSearch" placeholder="Search SKU / product / barcode" oninput="filterLiveProducts()"></div>
+     <table><thead><tr><th>Photo</th><th>SKU</th><th>Product</th><th>Barcode</th><th>Cost</th><th>Retail</th><th>Wholesale</th><th>Qty</th><th>Status</th></tr></thead>
      <tbody id="liveProducts"></tbody></table>`);
   renderLiveProductTable();
 }
@@ -217,12 +220,11 @@ function renderLiveProductTable(){
   const el=document.getElementById("liveProducts"); if(!el)return;
   el.innerHTML=liveProducts.map(p=>`
     <tr>
-      <td>${p.image_url?`<img class="item-thumb" src="${p.image_url}">`:`<div class="item-thumb">Photo</div>`}</td>
+      <td><div class="item-thumb">Photo</div></td>
       <td><b>${p.sku}</b></td><td>${p.name}</td><td>${p.barcode||""}</td>
       <td>$${Number(p.cost).toFixed(2)}</td><td>$${Number(p.sale_price).toFixed(2)}</td>
       <td>$${Number(p.wholesale_price||0).toFixed(2)}</td><td>${p.quantity}</td>
       <td><span class="badge ${p.quantity<=p.reorder_level?'pending':'paid'}">${p.quantity<=p.reorder_level?'Low':'OK'}</span></td>
-      <td><div class="actions"><button class="btn light" onclick="alert('Demo Mode')">Edit</button></div></td>
     </tr>`).join("");
 }
 
@@ -235,13 +237,12 @@ function filterLiveProducts(){
     <td><b>${esc(p.sku)}</b></td><td>${esc(p.name)}</td><td>${esc(p.barcode||"")}</td>
     <td>$${Number(p.cost).toFixed(2)}</td><td>$${Number(p.sale_price).toFixed(2)}</td><td>$${Number(p.wholesale_price||0).toFixed(2)}</td>
     <td>${p.quantity}</td><td><span class="badge paid">OK</span></td>
-    <td><button class="btn light">Edit</button></td>
   </tr>`).join("");
 }
 
 let cart=[];
 function livePOSPage(){
-  modulePage("Point of Sale","Official sales checkout - USD & LBP Demo.",
+  modulePage("Point of Sale","Official sales checkout - Demo Mode.",
   `<button class="btn light" onclick="cart=[];renderCart()">Clear Cart</button>`,
   `<div class="grid2">
     <div class="card"><div class="toolbar"><input id="posSearch" placeholder="Search product or barcode" oninput="renderPOSProducts()"></div><div id="posProducts"></div></div>
@@ -297,7 +298,6 @@ function settings(){modulePage("Settings","System Settings","",`<div class="empt
 
 document.addEventListener("keydown",e=>{if(e.key==="Enter"&&document.activeElement&&(document.activeElement.id==="u"||document.activeElement.id==="p"))login()});
 
-// Immediate execution check for GitHub URL params
 (function(){
   try{
     const params=new URLSearchParams(window.location.search);
